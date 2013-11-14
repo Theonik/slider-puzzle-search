@@ -1,13 +1,13 @@
 package su.kininarima.sliderpuzzle.main;
 
 public class BoardState {
-	private static final byte sizeX = 3;
-	private static final byte sizeY = 3;
 	private byte spacePosY;
 	private byte spacePosX;
 	private byte[][] board;
-	public BoardState() {
-		board = new byte[sizeX][sizeY];
+	public BoardState(byte[][] inBoard, byte x, byte y) {
+		board = inBoard;
+		spacePosX = x;
+		spacePosY = y;
 	}
 	
 	public BoardState(BoardState b, Direction d){
@@ -38,7 +38,7 @@ public class BoardState {
 				return true;
 			}
 		case DOWN:
-			if (spacePosY<(sizeY-1)) {
+			if (spacePosY<(board.length-1)) {
 				board[spacePosX][spacePosY] = board[spacePosX][spacePosY+1];
 				spacePosY++;
 				board[spacePosX][spacePosY] = 0;
@@ -52,7 +52,7 @@ public class BoardState {
 				return true;
 			}
 		case RIGHT:
-			if (spacePosX<(sizeX-1)) {
+			if (spacePosX<(board[0].length-1)) {
 				board[spacePosX][spacePosY] = board[spacePosX+1][spacePosY];
 				spacePosX++;
 				board[spacePosX][spacePosY] = 0;
