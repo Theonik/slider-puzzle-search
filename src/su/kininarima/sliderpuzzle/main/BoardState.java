@@ -28,6 +28,10 @@ public class BoardState {
 		return true;
 	}
 	
+	public byte[][] getBoard(){
+		return board;
+	}
+	
 	private boolean moveSpace(Direction d) {
 		switch (d){
 		case UP:
