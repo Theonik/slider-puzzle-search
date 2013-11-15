@@ -10,16 +10,18 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		FileIO loader = new FileIO();
+		BoardState startState=null, endState = null;
 		try {
-		BoardState startState = loader.loadPuzzle(new File(args[0]));
-		BoardState endState = loader.loadPuzzle(new File(args[1]));
+		startState = loader.loadPuzzle(new File(args[0]));
+		endState = loader.loadPuzzle(new File(args[1]));
 		}
 		catch (FileNotFoundException e) {
 			System.out.println("Error File Not Found");
 			System.exit(1);
 		}
 		if (args[2].equals("bfs")) {
-			
+			BFS searcher = new BFS(startState, endState);
+			searcher.solve();
 		}
 		else if (args[2].equals("dfs")) {
 			

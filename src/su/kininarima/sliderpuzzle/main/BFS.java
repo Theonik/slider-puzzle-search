@@ -1,10 +1,19 @@
 package su.kininarima.sliderpuzzle.main;
 
-public class BFS extends Search {
+import java.util.ArrayList;
 
+public class BFS {
+
+	BoardState sState, eState;
+	ArrayList<BoardState> visitedList;
+	
+	
 	public BFS(BoardState startState, BoardState endState) {
-		super(startState, endState);
-		// TODO Auto-generated constructor stub
+		sState=startState;
+		eState=endState;
+	}
+	public void solve(){
+		
 	}
 
 }
