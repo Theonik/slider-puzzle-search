@@ -24,7 +24,8 @@ public class Main {
 			searcher.solve();
 		}
 		else if (args[2].equals("dfs")) {
-			
+			DFS searcher = new DFS(startState, endState);
+			searcher.solve();
 		}
 		else if (args[2].equals("astar1")) {
 			
