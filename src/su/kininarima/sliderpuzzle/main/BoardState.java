@@ -6,12 +6,14 @@ public class BoardState {
 	private byte spacePosY;
 	private byte spacePosX;
 	private byte[][] board;
+	private long depth;
 	private BoardState parent;
 	
 	public BoardState(byte[][] inBoard, byte x, byte y) {
 		this.board = inBoard;
 		this.spacePosX = x;
 		this.spacePosY = y;
+		this.depth = 0;
 		this.parent = null;
 	}
 	
@@ -22,8 +24,10 @@ public class BoardState {
 		}	
 		this.spacePosY = b.spacePosY;
 		this.spacePosX = b.spacePosX;
+		this.depth = b.depth;
 		this.parent = b;
 		this.moveSpace(d);
+		this.depth++;
 	}
 		
 	@Override
@@ -53,6 +57,11 @@ public class BoardState {
 	public byte[][] getBoard(){
 		return board;
 	}
+	
+	public long getDepth(){
+		return depth;
+	}
+	
 	public BoardState getParent(){
 		return parent;
 	}
