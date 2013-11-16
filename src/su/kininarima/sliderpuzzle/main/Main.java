@@ -11,6 +11,11 @@ public class Main {
 	public static void main(String[] args) {
 		FileIO loader = new FileIO();
 		BoardState startState=null, endState = null;
+		if (args.length !=3) {
+			System.out.println("Error invalid command line arguemnts arguements should be in the form of " +
+					"< initial puzzle state file > < goal puzzle state file > < mode >");
+			System.exit(1);
+		}
 		try {
 		startState = loader.loadPuzzle(new File(args[0]));
 		endState = loader.loadPuzzle(new File(args[1]));
