@@ -3,6 +3,7 @@ package su.kininarima.sliderpuzzle.main;
 import java.util.ArrayDeque;
 
 public class Display {
+	private static final String newLine = System.getProperty("line.separator"); //OS agnostic linebreak
 	
 	public Display() {
 	}
@@ -13,7 +14,7 @@ public class Display {
 			for (int x =0; x<b.getBoard().length; x++) {
 				sb.append(b.getBoard()[x][y]);
 			}
-			sb.append('\n');
+			sb.append(newLine);
 		}
 		return sb.toString();
 	}
@@ -27,7 +28,7 @@ public class Display {
 		}
 		while (!stack.isEmpty()) {
 			sb.append(boardToString(stack.pop()));
-			sb.append('\n');
+			sb.append(newLine);
 		}
 		return sb.toString();
 	}
