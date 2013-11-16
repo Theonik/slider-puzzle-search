@@ -1,25 +1,47 @@
 package su.kininarima.sliderpuzzle.main;
 
+import java.util.Arrays;
+
 public class BoardState {
 	private byte spacePosY;
 	private byte spacePosX;
 	private byte[][] board;
+	private BoardState parent;
+	
 	public BoardState(byte[][] inBoard, byte x, byte y) {
-		board = inBoard;
-		spacePosX = x;
-		spacePosY = y;
+		this.board = inBoard;
+		this.spacePosX = x;
+		this.spacePosY = y;
+		this.parent = null;
 	}
 	
 	public BoardState(BoardState b, Direction d){
+		this.board = b.board.clone();
+		for (int y = 0; y<this.board.length;y++){
+			this.board[y] = b.board[y].clone();
+		}	
 		this.spacePosY = b.spacePosY;
 		this.spacePosX = b.spacePosX;
-		this.board = b.board;
-		moveSpace(d);
+		this.parent = b;
+		this.moveSpace(d);
 	}
-	
-	public boolean isEqual(BoardState other){
-		for(byte y = 0; y<9; y++){
-			for (byte x = 0; x<9; x++){
+		
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + Arrays.hashCode(board);
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj){
+		if (obj == null) {
+			return false;
+		}
+		BoardState other = (BoardState) obj;
+		for(byte y = 0; y<board.length; y++){ //because arrays in Java are the work of the devil and I don't trust Arrays.deepEquals() to work.
+			for (byte x = 0; x<board[0].length; x++){
 				if (this.board[x][y] != other.board[x][y]){
 					return false;
 				}
@@ -27,9 +49,12 @@ public class BoardState {
 		}
 		return true;
 	}
-	
+
 	public byte[][] getBoard(){
 		return board;
+	}
+	public BoardState getParent(){
+		return parent;
 	}
 	
 	private boolean moveSpace(Direction d) {
