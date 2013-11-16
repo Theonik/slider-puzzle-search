@@ -21,7 +21,7 @@ public class AStar {
 	public void solve() {
 		BoardState cState = sState;
 		visitedList = new ArrayList<BoardState>();
-		frontierList = new PriorityQueue<BoardState>(20, heuristic);
+		frontierList = new PriorityQueue<BoardState>(100, heuristic);
 		long startTime, endTime, totalTime;
 		startTime = System.nanoTime();
 		while (cState != null && !cState.equals(eState)){

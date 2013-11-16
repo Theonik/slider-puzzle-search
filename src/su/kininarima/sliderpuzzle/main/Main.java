@@ -28,7 +28,8 @@ public class Main {
 			searcher.solve();
 		}
 		else if (args[2].equals("astar1")) {
-			
+			AStar searcher = new AStar(startState, endState, new Heuristics((byte)0,endState));
+			searcher.solve();
 		}
 		else if (args[2].equals("astar2")) {
 			
