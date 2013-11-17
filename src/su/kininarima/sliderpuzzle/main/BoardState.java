@@ -9,7 +9,9 @@ public class BoardState {
 	private BoardState parent; //keeps track of the parent that was used to generate this state
 
 	/** Constructor used to load a new state 
-	 * @param inBoard board to load @param x x-position of space @param y y-position of space**/
+	 * @param inBoard board to load
+	 * @param x x-position of space
+	 * @param y y-position of space**/
 	public BoardState(byte[][] inBoard, byte x, byte y) {
 		this.board = inBoard;
 		this.spacePosX = x;
@@ -19,7 +21,8 @@ public class BoardState {
 	}
 
 	/** Constructor used to create a new state based on an old one.
-	 * @param b the state this state is based on @param d the direction the space needs to move**/
+	 * @param b the state this state is based on
+	 * @param d the direction the space needs to move**/
 	public BoardState(BoardState b, Direction d){
 		this.board = b.board.clone();
 		for (int y = 0; y<this.board.length;y++){
@@ -57,23 +60,24 @@ public class BoardState {
 		return true;
 	}
 
-	/** @returns  the board in a byte[][]**/
+	/** @return  the board in a byte[][]**/
 	public byte[][] getBoard(){
 		return board;
 	}
 
-	/** @returns the depth the state is located at as a long **/
+	/** @return the depth the state is located at as a long **/
 	public long getDepth(){
 		return depth;
 	}
 
-	/** @returns the pointer to the parent **/
+	/** @return the pointer to the parent **/
 	public BoardState getParent(){
 		return parent;
 	}
 
 	/** moves the space by 1 in a specified direction and replaces it with what was previously in that location 
-	 * @param d the direction of the motion @returns true if the move was possible.**/
+	 * @param d the direction of the motion
+	 * @return true if the move was possible.**/
 	private boolean moveSpace(Direction d) {
 		switch (d){
 		case UP:

@@ -10,7 +10,9 @@ public class BFS {
 	private LinkedBlockingQueue<BoardState> frontierList; //list of nodes to explore
 	private long nodesExpanded =0; //number of nodes explored
 
-	/** @param startState start state @param endState goal state**/
+	/** Default constructor
+	 * @param startState start state
+	 * @param endState goal state**/
 	public BFS(BoardState startState, BoardState endState) {
 		sState=startState;
 		eState=endState;

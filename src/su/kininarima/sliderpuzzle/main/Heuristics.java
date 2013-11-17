@@ -6,7 +6,9 @@ public class Heuristics implements Comparator<BoardState> {
 	private BoardState endState;
 	private byte heuristic;
 
-	/** @param h the chosen heuristic @param eState the end state used to calculate heuristics.**/
+	/** Constructor
+	 * @param h the chosen heuristic 
+	 * @param eState the end state used to calculate heuristics.**/
 	public Heuristics(byte h, BoardState eState) {
 		endState = eState;
 		heuristic = h;
@@ -14,9 +16,9 @@ public class Heuristics implements Comparator<BoardState> {
 
 	@Override
 	public int compare(BoardState s1, BoardState s2) {
-		long dEstimate1 = s1.getDepth(), dEstimate2 = s2.getDepth();
-		if (heuristic == 0){
-			for(int y = 0; y<endState.getBoard().length;y++) {
+		long dEstimate1 = s1.getDepth(), dEstimate2 = s2.getDepth(); //get path cost so far
+		if (heuristic == 0){ //for mode 0
+			for(int y = 0; y<endState.getBoard().length;y++) { //calculate unsolved tiles
 				for(int x = 0; x<endState.getBoard()[0].length; x++){
 					if (endState.getBoard()[x][y] != s1.getBoard()[x][y]&&s1.getBoard()[x][y]!=0) {
 						dEstimate1++;
@@ -27,8 +29,8 @@ public class Heuristics implements Comparator<BoardState> {
 				}
 			}
 		}
-		else if (heuristic == 1){
-			for (int stY = 0;stY<endState.getBoard().length;stY++){
+		else if (heuristic == 1){ //for mode 1
+			for (int stY = 0;stY<endState.getBoard().length;stY++){ //calculate Manhattan distance
 				for (int stX = 0;stX<endState.getBoard()[0].length;stX++){
 					byte value1=s1.getBoard()[stX][stY], value2=s2.getBoard()[stX][stY];
 					for (int enY = 0;enY<endState.getBoard().length;enY++){
@@ -52,7 +54,7 @@ public class Heuristics implements Comparator<BoardState> {
 			return -1;
 		}
 		else{
-			return 0;
+			return 0; //do nothing if the mode is invalid
 		}
 	}
 

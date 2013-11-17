@@ -12,7 +12,10 @@ public class AStar {
 	private long nodesExpanded =0; //tracks the number of nodes expanded
 	Comparator<BoardState> heuristic; //heuristic used to order the queue
 
-	/** @param startState the start state @param endState the goal state @param h some heuristic **/
+	/** Default constructor
+	 * @param startState the start state
+	 * @param endState the goal state
+	 * @param h some heuristic **/
 	public AStar(BoardState startState, BoardState endState, Comparator<BoardState> h) {
 		sState=startState;
 		eState=endState;
