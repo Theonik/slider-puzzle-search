@@ -14,7 +14,12 @@ public class Display {
 		StringBuffer sb = new StringBuffer();
 		for (int y = 0; y<b.getBoard().length; y++){
 			for (int x =0; x<b.getBoard().length; x++) {
-				sb.append(b.getBoard()[x][y]);
+				if (b.getBoard()[x][y] == 0){
+					sb.append(' ');
+				}
+				else {
+					sb.append(b.getBoard()[x][y]);
+				}
 			}
 			sb.append(newLine);
 		}
