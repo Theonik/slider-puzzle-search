@@ -5,7 +5,7 @@ import java.util.Comparator;
 public class Heuristics implements Comparator<BoardState> {
 	private BoardState endState;
 	private byte heuristic;
-	
+
 	/** @param h the chosen heuristic @param eState the end state used to calculate heuristics.**/
 	public Heuristics(byte h, BoardState eState) {
 		endState = eState;
@@ -26,6 +26,25 @@ public class Heuristics implements Comparator<BoardState> {
 					}
 				}
 			}
+		}
+		else if (heuristic == 1){
+			for (int stY = 0;stY<endState.getBoard().length;stY++){
+				for (int stX = 0;stX<endState.getBoard()[0].length;stX++){
+					byte value1=s1.getBoard()[stX][stY], value2=s2.getBoard()[stX][stY];
+					for (int enY = 0;enY<endState.getBoard().length;enY++){
+						for (int enX = 0;enX<endState.getBoard()[0].length;enX++){
+							if (value1!=0&&value1==endState.getBoard()[enX][enY]){
+								dEstimate1 = dEstimate1 + Math.abs(stX-enX) + Math.abs(stY-enY);
+							}
+							if (value2!=0&&value2==endState.getBoard()[enX][enY]){
+								dEstimate2 = dEstimate2 + Math.abs(stX-enX) + Math.abs(stY-enY);
+							}
+						}
+					}
+				}
+			}
+
+		}
 		if (dEstimate1 > dEstimate2){
 			return 1;
 		}
@@ -35,11 +54,6 @@ public class Heuristics implements Comparator<BoardState> {
 		else{
 			return 0;
 		}
-		}
-		else if (heuristic == 1){
-			
-		}
-		return 0;
 	}
 
 }

@@ -4,10 +4,10 @@ import java.util.ArrayDeque;
 
 public class Display {
 	private static final String newLine = System.getProperty("line.separator"); //OS agnostic linebreak
-	
+
 	public Display() {
 	}
-	
+
 	public String boardToString(BoardState b) {
 		StringBuffer sb = new StringBuffer();
 		for (int y = 0; y<b.getBoard().length; y++){

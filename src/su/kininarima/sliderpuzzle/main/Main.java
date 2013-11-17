@@ -10,15 +10,15 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		FileIO loader = new FileIO();
-	    BoardState startState=null, endState = null;
+		BoardState startState=null, endState = null;
 		if (args.length !=3) {
 			System.out.println("Error: Invalid command line argumnts." + newLine +"Arguments should be in the form of " +
 					"< initial puzzle state file > < goal puzzle state file > < mode >");
 			System.exit(1);
 		}
 		try {
-		startState = loader.loadPuzzle(new File(args[0]));
-		endState = loader.loadPuzzle(new File(args[1]));
+			startState = loader.loadPuzzle(new File(args[0]));
+			endState = loader.loadPuzzle(new File(args[1]));
 		}
 		catch (FileNotFoundException e) {
 			System.out.println("Error: File Not Found");
@@ -37,7 +37,8 @@ public class Main {
 			searcher.solve();
 		}
 		else if (args[2].equals("astar2")) {
-			
+			AStar searcher = new AStar(startState, endState, new Heuristics((byte)1,endState));
+			searcher.solve();
 		}
 		else {
 			System.out.println("Error: Invalid mode arguement, acceptable arguements are 'bfs', 'dfs', 'astar1', or 'astar2'");
