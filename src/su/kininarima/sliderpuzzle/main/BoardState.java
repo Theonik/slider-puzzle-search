@@ -8,7 +8,7 @@ public class BoardState {
 	private byte[][] board;
 	private long depth;
 	private BoardState parent;
-	
+
 	public BoardState(byte[][] inBoard, byte x, byte y) {
 		this.board = inBoard;
 		this.spacePosX = x;
@@ -16,7 +16,7 @@ public class BoardState {
 		this.depth = 0;
 		this.parent = null;
 	}
-	
+
 	public BoardState(BoardState b, Direction d){
 		this.board = b.board.clone();
 		for (int y = 0; y<this.board.length;y++){
@@ -29,7 +29,7 @@ public class BoardState {
 		this.moveSpace(d);
 		this.depth++;
 	}
-		
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -57,15 +57,15 @@ public class BoardState {
 	public byte[][] getBoard(){
 		return board;
 	}
-	
+
 	public long getDepth(){
 		return depth;
 	}
-	
+
 	public BoardState getParent(){
 		return parent;
 	}
-	
+
 	private boolean moveSpace(Direction d) {
 		switch (d){
 		case UP:
