@@ -12,7 +12,7 @@ public class Main {
 		FileIO loader = new FileIO();
 		BoardState startState=null, endState = null;
 		if (args.length !=3) {
-			System.out.println("Error: Invalid command line argumnts." + newLine +"Arguments should be in the form of " +
+			System.out.println("Error: Invalid command line arguments." + newLine +"Arguments should be in the form of " +
 					"< initial puzzle state file > < goal puzzle state file > < mode >");
 			System.exit(1);
 		}

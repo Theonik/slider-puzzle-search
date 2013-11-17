@@ -39,7 +39,7 @@ public class DFS {
 		}
 		else {
 			Display out = new Display();
-			System.out.println("Solution found after expanding "+ nodesExpanded + " nodes. Searched for " + totalTime*1E-6 + "ms.");
+			System.out.println("Solution found after expanding "+ nodesExpanded + " nodes. Searched for " + totalTime*1E-6 + "ms. Depth: " + cState.getDepth());
 			System.out.println(out.solutionToString(cState));
 		}
 	}
