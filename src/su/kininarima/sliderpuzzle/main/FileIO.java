@@ -6,13 +6,14 @@ import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
 import java.util.Scanner;
 
-
+/** Used to read files**/
 public class FileIO {
 
 	public FileIO() {
 
 	}
-
+    /** Loads a single board state from a file 
+     * @param file the file from which the state needs to be loaded from**/
 	public BoardState loadPuzzle(File file) throws FileNotFoundException {
 		byte[][] board = new byte[3][3];
 		byte spaceX = -1;
@@ -29,8 +30,8 @@ public class FileIO {
 					board[x][y] = 0;
 					x++;
 				}
-				else if (s.charAt(i) == ',') {}
-				else {
+				else if (s.charAt(i) == ',') {} //ignore commas they are silly things
+				else { //not very robust but it will do
 					board[x][y] = (byte)(s.charAt(i)-48);
 					x++;
 				}

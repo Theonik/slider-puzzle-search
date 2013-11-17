@@ -2,14 +2,14 @@ package su.kininarima.sliderpuzzle.main;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-
+/** Class that contains the main method for this project, use with correct parameters to start the program **/
 public class Main {
 	private static final String newLine = System.getProperty("line.separator"); //OS agnostic linebreak
 	/**
-	 * @param args
+	 * @param args provide start state, goal state and mode.
 	 */
 	public static void main(String[] args) {
-		FileIO loader = new FileIO();
+		FileIO loader = new FileIO(); 
 		BoardState startState=null, endState = null;
 		if (args.length !=3) {
 			System.out.println("Error: Invalid command line arguments." + newLine +"Arguments should be in the form of " +

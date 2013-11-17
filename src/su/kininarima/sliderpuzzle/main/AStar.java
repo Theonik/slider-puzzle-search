@@ -3,29 +3,31 @@ package su.kininarima.sliderpuzzle.main;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.PriorityQueue;
-
+/** This class implements A* search and is used for that purpose **/
 public class AStar {
 
-	private BoardState sState, eState;
-	private ArrayList<BoardState> visitedList;
-	private PriorityQueue<BoardState> frontierList;
-	private long nodesExpanded =0;
-	Comparator<BoardState> heuristic;
+	private BoardState sState, eState; //Store start and end states for the puzzle
+	private ArrayList<BoardState> visitedList; //Stores the list of visited nodes
+	private PriorityQueue<BoardState> frontierList; //Stores the nodes to be evaluated
+	private long nodesExpanded =0; //tracks the number of nodes expanded
+	Comparator<BoardState> heuristic; //heuristic used to order the queue
 
-
+	/** @param startState the start state @param endState the goal state @param h some heuristic **/
 	public AStar(BoardState startState, BoardState endState, Comparator<BoardState> h) {
 		sState=startState;
 		eState=endState;
 		heuristic = h;
 	}
+
+	/**Method to solve**/
 	public void solve() {
 		BoardState cState = sState;
 		visitedList = new ArrayList<BoardState>();
 		frontierList = new PriorityQueue<BoardState>(100, heuristic);
-		long startTime, endTime, totalTime;
+		long startTime, endTime, totalTime; //to measure solution time
 		startTime = System.nanoTime();
-		while (cState != null && !cState.equals(eState)){
-			if (!visitedList.contains(cState)) {
+		while (cState != null && !cState.equals(eState)){ //keep going unless all nodes are evaluated or solution is found
+			if (!visitedList.contains(cState)) { //expand if not visited
 				frontierList.add(new BoardState(cState, Direction.UP));
 				frontierList.add(new BoardState(cState, Direction.DOWN));
 				frontierList.add(new BoardState(cState, Direction.LEFT));
@@ -33,7 +35,7 @@ public class AStar {
 				visitedList.add(cState);
 				nodesExpanded++;
 			}
-			cState = frontierList.poll();
+			cState = frontierList.poll(); //get new node from frontier
 		}
 		endTime = System.nanoTime();
 		totalTime = endTime - startTime;

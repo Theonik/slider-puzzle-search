@@ -2,35 +2,36 @@ package su.kininarima.sliderpuzzle.main;
 
 import java.util.ArrayList;
 import java.util.concurrent.LinkedBlockingQueue;
-
+/** Breadth First Search implementation **/
 public class BFS {
 
-	private BoardState sState, eState;
-	private ArrayList<BoardState> visitedList;
-	private LinkedBlockingQueue<BoardState> frontierList;
-	private long nodesExpanded =0;
-	
-	
+	private BoardState sState, eState; //start and goal states
+	private ArrayList<BoardState> visitedList; //list of explored nodes
+	private LinkedBlockingQueue<BoardState> frontierList; //list of nodes to explore
+	private long nodesExpanded =0; //number of nodes explored
+
+	/** @param startState start state @param endState goal state**/
 	public BFS(BoardState startState, BoardState endState) {
 		sState=startState;
 		eState=endState;
 	}
+	/** Method to solve **/
 	public void solve(){
 		BoardState cState = sState;
 		visitedList = new ArrayList<BoardState>();
 		frontierList = new LinkedBlockingQueue<BoardState>();
-		long startTime, endTime, totalTime;
+		long startTime, endTime, totalTime; //for time keeping
 		startTime = System.nanoTime();
-		while (cState != null && !cState.equals(eState)){
-			if (!visitedList.contains(cState)) {
+		while (cState != null && !cState.equals(eState)){ //stop if all nodes explored or found solution
+			if (!visitedList.contains(cState)) { //expand node if not already expanded
 				frontierList.add(new BoardState(cState, Direction.UP));
 				frontierList.add(new BoardState(cState, Direction.DOWN));
 				frontierList.add(new BoardState(cState, Direction.LEFT));
 				frontierList.add(new BoardState(cState, Direction.RIGHT));
-				visitedList.add(cState);
+				visitedList.add(cState); //add to explored list
 				nodesExpanded++;
 			}
-			cState = frontierList.poll();
+			cState = frontierList.poll(); //get new node from frontier
 		}
 		endTime = System.nanoTime();
 		totalTime = endTime - startTime;
