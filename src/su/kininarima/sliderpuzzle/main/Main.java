@@ -41,7 +41,7 @@ public class Main {
 			searcher.solve();
 		}
 		else {
-			System.out.println("Error: Invalid mode arguement, acceptable arguements are 'bfs', 'dfs', 'astar1', or 'astar2'");
+			System.out.println("Error: Invalid mode argument, acceptable arguments are 'bfs', 'dfs', 'astar1', or 'astar2'");
 			System.exit(1);
 		}
 	}
