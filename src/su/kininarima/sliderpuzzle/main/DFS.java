@@ -1,12 +1,12 @@
 package su.kininarima.sliderpuzzle.main;
 
 import java.util.ArrayDeque;
-import java.util.ArrayList;
+import java.util.HashSet;
 /** Depth first Search implementation **/
 public class DFS {
 
 	private BoardState sState, eState;
-	private ArrayList<BoardState> visitedList;
+	private HashSet<BoardState> visitedList;
 	private ArrayDeque<BoardState> frontierList;
 	private long nodesExpanded =0;
 
@@ -20,7 +20,7 @@ public class DFS {
 	/**Method used to solve **/
 	public void solve() {
 		BoardState cState = sState;
-		visitedList = new ArrayList<BoardState>();
+		visitedList = new HashSet<BoardState>();
 		frontierList = new ArrayDeque<BoardState>();
 		long startTime, endTime, totalTime; //for time keeping
 		startTime = System.nanoTime();
