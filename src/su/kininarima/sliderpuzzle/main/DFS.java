@@ -26,10 +26,9 @@ public class DFS {
 		startTime = System.nanoTime();
 		while (cState != null && !cState.equals(eState)){ //keep going if not done
 			if (!visitedList.contains(cState)) { //expand all nodes if not already done so
-				frontierList.push(new BoardState(cState, Direction.UP));
-				frontierList.push(new BoardState(cState, Direction.DOWN));
-				frontierList.push(new BoardState(cState, Direction.LEFT));
-				frontierList.push(new BoardState(cState, Direction.RIGHT));
+				for (Direction d : Direction.values()) {
+					frontierList.push(new BoardState(cState, d));
+				}
 				visitedList.add(cState); //add to explored
 				nodesExpanded++;
 			}

@@ -26,10 +26,9 @@ public class BFS {
 		startTime = System.nanoTime();
 		while (cState != null && !cState.equals(eState)){ //stop if all nodes explored or found solution
 			if (!visitedList.contains(cState)) { //expand node if not already expanded
-				frontierList.add(new BoardState(cState, Direction.UP));
-				frontierList.add(new BoardState(cState, Direction.DOWN));
-				frontierList.add(new BoardState(cState, Direction.LEFT));
-				frontierList.add(new BoardState(cState, Direction.RIGHT));
+				for (Direction d : Direction.values()) {
+					frontierList.add(new BoardState(cState, d));
+				}
 				visitedList.add(cState); //add to explored list
 				nodesExpanded++;
 			}

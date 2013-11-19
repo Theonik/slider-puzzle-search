@@ -31,10 +31,9 @@ public class AStar {
 		startTime = System.nanoTime();
 		while (cState != null && !cState.equals(eState)){ //keep going unless all nodes are evaluated or solution is found
 			if (!visitedList.contains(cState)) { //expand if not visited
-				frontierList.add(new BoardState(cState, Direction.UP));
-				frontierList.add(new BoardState(cState, Direction.DOWN));
-				frontierList.add(new BoardState(cState, Direction.LEFT));
-				frontierList.add(new BoardState(cState, Direction.RIGHT));
+				for (Direction d : Direction.values()) {
+					frontierList.add(new BoardState(cState, d));
+				}
 				visitedList.add(cState);
 				nodesExpanded++;
 			}
