@@ -3,7 +3,8 @@ package su.kininarima.sliderpuzzle.main;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.PriorityQueue;
-/** This class implements A* search and is used for that purpose **/
+/** This class implements A* search and is used for that purpose 
+ * @author Theonik. This software is available under the GPLv2 license.**/
 public class AStar {
 
 	private BoardState sState, eState; //Store start and end states for the puzzle

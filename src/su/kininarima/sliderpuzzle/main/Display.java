@@ -1,7 +1,8 @@
 package su.kininarima.sliderpuzzle.main;
 
 import java.util.ArrayDeque;
-/** this class generates states and solutions as strings **/
+/** this class generates states and solutions as strings 
+ * @author Theonik. This software is available under the GPLv2 license.**/
 public class Display {
 	private static final String newLine = System.getProperty("line.separator"); //OS agnostic linebreak
 

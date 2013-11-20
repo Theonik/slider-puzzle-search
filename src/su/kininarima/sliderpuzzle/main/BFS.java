@@ -2,7 +2,8 @@ package su.kininarima.sliderpuzzle.main;
 
 import java.util.ArrayList;
 import java.util.concurrent.LinkedBlockingQueue;
-/** Breadth First Search implementation **/
+/** Breadth First Search implementation 
+ * @author Theonik. This software is available under the GPLv2 license.**/
 public class BFS {
 
 	private BoardState sState, eState; //start and goal states

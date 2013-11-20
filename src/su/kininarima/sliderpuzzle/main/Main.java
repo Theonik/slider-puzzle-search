@@ -2,7 +2,8 @@ package su.kininarima.sliderpuzzle.main;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-/** Class that contains the main method for this project, use with correct parameters to start the program **/
+/** Class that contains the main method for this project, use with correct parameters to start the program 
+ * @author Theonik. This software is available under the GPLv2 license.**/
 public class Main {
 	private static final String newLine = System.getProperty("line.separator"); //OS agnostic linebreak
 	/**

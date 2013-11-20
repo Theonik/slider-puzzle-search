@@ -6,7 +6,8 @@ import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
 import java.util.Scanner;
 
-/** Used to read files**/
+/** Used to read files
+ * @author Theonik. This software is available under the GPLv2 license.**/
 public class FileIO {
 
 	public FileIO() {

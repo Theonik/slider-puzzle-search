@@ -1,7 +1,7 @@
 package su.kininarima.sliderpuzzle.main;
 
 import java.util.Comparator;
-
+/**@author Theonik. This software is available under the GPLv2 license.**/
 public class Heuristics implements Comparator<BoardState> {
 	private BoardState endState;
 	private byte heuristic;

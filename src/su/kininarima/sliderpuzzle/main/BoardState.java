@@ -1,7 +1,8 @@
 package su.kininarima.sliderpuzzle.main;
 
 import java.util.Arrays;
-/** This class is used to represent and generate each state of the 8-puzzle board.**/
+/** This class is used to represent and generate each state of the 8-puzzle board.
+ * @author Theonik. This software is available under the GPLv2 license.**/
 public class BoardState {
 	private byte spacePosX, spacePosY; //cursors storing the location of the space.
 	private byte[][] board; //stores the board

@@ -2,7 +2,8 @@ package su.kininarima.sliderpuzzle.main;
 
 import java.util.ArrayDeque;
 import java.util.HashSet;
-/** Depth first Search implementation **/
+/** Depth first Search implementation 
+ * @author Theonik. This software is available under the GPLv2 license.**/
 public class DFS {
 
 	private BoardState sState, eState;
